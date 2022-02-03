@@ -3,13 +3,13 @@ import express from "express";
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
- Players.getAll()
-  .then(card => {
-    res.json(card);
-  }).catch(err => {
-    res.status(500).json({error : err.message})
-  })
+router.get('/', async (req, res) => {
+try {
+const players = await Players.getAll();
+res.json(players).status(200);
+}catch (error) {
+  res.json({ message: error.message}).status(500);
+}
 });
 
 router.get('/:id', (req, res) => {
