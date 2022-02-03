@@ -12,7 +12,7 @@ const validate = (data, forCreation = true) => {
 
 const getAll = () => {
   return new Promise((resolve, reject) => {
-  dbConnect.query("SELECT * FROM Families", (err, results) => {
+  dbConnect.query("SELECT * FROM family", (err, results) => {
     if (err) reject(err);
     else resolve(results);
   })
@@ -21,7 +21,7 @@ const getAll = () => {
 
 const getOne = (id) => {
   return new Promise ((resolve, reject) => {
-dbConnect.query("SELECT * FROM Families WHERE id = ?", id, (err, result) => {
+dbConnect.query("SELECT * FROM family WHERE id = ?", id, (err, result) => {
   if (err) reject (err);
   else resolve(result);
 })
@@ -33,7 +33,7 @@ const create = (family) => {
     name, country, capacity
   } = family;
   return new Promise((resolve, reject) => {
-    dbConnect.query('INSERT INTO Families ( name, country, capacity) VALUES (?,?,?)', [name, country, capacity], (err, results) => {
+    dbConnect.query('INSERT INTO family ( name, country, capacity) VALUES (?,?,?)', [name, country, capacity], (err, results) => {
 if (err) reject (err)
 else resolve(results.insertId);
     })
@@ -42,7 +42,7 @@ else resolve(results.insertId);
 
 const update = (body, id) => {
   return new Promise((resolve, reject) => {
-    dbConnect.query('UPDATE Families SET ? WHERE id = ?', [body, id], (err, result) => {
+    dbConnect.query('UPDATE family SET ? WHERE id = ?', [body, id], (err, result) => {
       if (err) reject(err);
       else resolve(result);
     })
@@ -51,7 +51,7 @@ const update = (body, id) => {
 
 const deleteById = (id) => {
   return new Promise((resolve, reject) => {
-    dbConnect.query('DELETE FROM Families WHERE id = ?', [id], (err, result) => {
+    dbConnect.query('DELETE FROM family WHERE id = ?', [id], (err, result) => {
       if(err) reject(err);
       else resolve(result.affectedRows);
     })
