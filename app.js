@@ -1,6 +1,6 @@
 import express from "express";
 import cors from 'cors';
-import { setupRoutes } from "../BorrelStoryCards/routes/router.js";
+import { setupRoutes } from "../Back_Checkpoint4/routes/router.js";
 
 const app = express();
 const port= 5000;

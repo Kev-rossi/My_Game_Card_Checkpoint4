@@ -15,3 +15,5 @@ dbConnect.connect((err) => {
   if (err) console.log('mysql connection error:', err);
   else console.log('mysql is connected');
 });
+
+export default dbConnect;
