@@ -7,9 +7,9 @@ CREATE TABLE `player` (
 
 CREATE TABLE `card` (
   `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `description` int NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `image` varchar(225) NOT NULL,
+  `description` varchar(255) NOT NULL,
   `defence` int NOT NULL,
   `powerfull` int NOT NULL,
   `protection` int NOT NULL,
