@@ -23,16 +23,16 @@ router.get('/:id', (req, res) => {
   })
 })
 
-router.get('/', (req, res)=> {
-  const email = req.body.email;
-  Players.getByEmail(email)
-  .then(mail => {
-    if (mail[0]) res.status(200).json(mail);
-    else res.status(404).send('Not found, please check a valid email');
-  }).catch(err => {
-    res.status(500).json({error : err.message})
-  })
-})
+// router.get('/', (req, res)=> {
+//   const email = req.body.email;
+//   Players.getByEmail(email)
+//   .then(mail => {
+//     if (mail[0]) res.status(200).json(mail);
+//     else res.status(404).send('Not found, please check a valid email');
+//   }).catch(err => {
+//     res.status(500).json({error : err.message})
+//   })
+// })
 
 router.post('/', (req, res) => {
   const {Gamer_tag, email, password} = req.body;
